@@ -5,4 +5,8 @@ function sendPost(url, data) {
     return axios.post(url, data)
 }
 
-module.exports = {sendPost}
+function sendGetImage(url) {
+    return axios.get(url, {responseType: 'arraybuffer'})
+}
+
+module.exports = {sendPost, sendGetImage}

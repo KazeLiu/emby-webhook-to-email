@@ -5,6 +5,7 @@ const port = 888;
 // 导入multer中间件
 const multer = require('multer');
 const {Main} = require("../controllers");
+const {returnPlayHtml} = require("../common/generateHtml");
 const upload = multer();
 
 // 处理POST请求
