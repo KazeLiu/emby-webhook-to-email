@@ -1,8 +1,9 @@
 const {sendWXMessage} = require("../send/wxPush");
-const {returnPlaySeriesHtml} = require("../common/generateHtml");
+const {returnPlaySeriesHtml,returnPlayMovieHtml} = require("../common/generateHtml");
 const {sendGetTMDB} = require("../common/axiso");
+const {logToFile} = require("../common/log");
 
-async function playStar(data) {
+function playSeries(data) {
     // 查询tmdb
     sendGetTMDB(`/search/tv?query=${data.Item.SeriesName}&first_air_date_year=${data.Item.ProductionYear}&language=zh-CN&page=1`).then(tmdbTVData => {
         if (tmdbTVData.total_results > 0) {
@@ -13,5 +14,15 @@ async function playStar(data) {
     })
 }
 
-module.exports = {playStar}
+function playMovie(data) {
+    // 查询tmdb
+    sendGetTMDB(`/movie/${data.Item.ProviderIds.Tmdb}?language=zh-CN`).then(tmdbTVData => {
+        data.Tmdb = tmdbTVData;
+        let html = returnPlayMovieHtml(data)
+        sendWXMessage(`开始播放《${data.Item.Name}》`, html)
+    })
+}
+
+
+module.exports = {playSeries, playMovie}
 

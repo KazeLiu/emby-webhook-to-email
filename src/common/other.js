@@ -9,12 +9,7 @@ function urlImageToBase64(url) {
     })
 }
 
-function dateToString(date, isUtc) {
-    if (isUtc && date) {
-        const dateInUTC = new Date(date);
-        const dateFormatter = new Intl.DateTimeFormat('en-US', {timeZone: 'Asia/Shanghai'});
-        const date = dateFormatter.format(dateInUTC);
-    }
+function dateToString(date) {
     const currentDate = date ?? new Date();
     const year = currentDate.getFullYear(); // 年
     const month = formatTwoDigits(currentDate.getMonth() + 1);
