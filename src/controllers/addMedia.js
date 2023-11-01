@@ -1,5 +1,5 @@
 const {sendWXMessage} = require("../send/wxPush");
-const {returnSeriesHtml, returnMovieHtml, returnAddSeriesHtml} = require("../common/generateHtml");
+const {returnSeriesHtml, returnMovieHtml, returnAddSeriesHtml, returnAddMovieHtml} = require("../common/generateHtml");
 const {sendGetTMDB} = require("../common/axiso");
 const {logToFile} = require("../common/log");
 
@@ -26,6 +26,7 @@ async function addSeries(data) {
             sendWXMessage(`媒体库已添加《${tvData.name}》的${S}季${E}集:《${eData.name}》`, html)
         } else {
             // 没查找到对应剧集
+            logToFile(`没有找到对应剧集：${JSON.stringify(data)}`)
         }
     } catch (e) {
         logToFile(`报错：${JSON.stringify(e)}`)
@@ -33,14 +34,19 @@ async function addSeries(data) {
 
 }
 
-function addMovie(data) {
-    logToFile(`开始获取电影${data.Item.Name}的信息`)
+async function addMovie(data) {
+    logToFile(`开始获取电影《${data.Item.Name}》的信息`)
     // 查询tmdb
-    sendGetTMDB(`/movie/${data.Item.ProviderIds.Tmdb}?language=zh-CN`).then(tmdbTVData => {
-        data.Tmdb = tmdbTVData;
-        let html = returnAddMovieHtml(data)
-        sendWXMessage(`开始播放《${data.Item.Name}》`, html)
-    })
+    try {
+        let tvDataList = await sendGetTMDB(`/search/movie?query=${data.Item.Name}&language=zh-CN`)
+        if (tvDataList.total_results > 0) {
+            data.Tmdb = tvDataList.results[0];
+            let html = returnAddMovieHtml(data)
+            sendWXMessage(`媒体库已添加《${data.Item.Name}》`, html)
+        }
+    } catch (e) {
+        logToFile(`报错：${JSON.stringify(e)}`)
+    }
 }
 
 module.exports = {addSeries, addMovie}

@@ -17,6 +17,35 @@ app.post('/webhook', upload.none(), (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-    Main({"Title":"新 16bit的感动(2023) - S01E04 在 Emby Server","Date":"2023-11-01T08:19:44.1372090Z","Event":"library.new","Item":{"Name":"S01E04","ServerId":"2240cf897563470792b631152eb15508","Id":"199","DateCreated":"2023-11-01T08:18:54.9328120Z","SortName":"S01E04","ExternalUrls":[],"Path":"D:\\anime\\16bit的感动(2023)\\S01E04.mp4","Taglines":[],"Genres":[],"FileName":"S01E04.mp4","RemoteTrailers":[],"ProviderIds":{},"IsFolder":false,"Type":"Episode","Studios":[],"GenreItems":[],"TagItems":[],"SeriesName":"16bit的感动(2023)","SeriesId":"198","ImageTags":{},"BackdropImageTags":[],"MediaType":"Video"},"Server":{"Name":"DESKTOP-S7DTKJP","Id":"2240cf897563470792b631152eb15508","Version":"4.7.14.0"}})
+    Main({
+            "Title": "新 铃芽之旅 在 Emby Server",
+            "Date": "2023-11-01T05:39:40.2501249Z",
+            "Event": "library.new",
+            "Item": {
+                "Name": "铃芽之旅",
+                "ServerId": "2240cf897563470792b631152eb15508",
+                "Id": "103",
+                "DateCreated": "2023-11-01T05:39:01.8339577Z",
+                "SortName": "铃芽之旅",
+                "ExternalUrls": [],
+                "Path": "D:\\movie\\铃芽之旅.mp4",
+                "Taglines": [],
+                "Genres": [],
+                "FileName": "铃芽之旅.mp4",
+                "RemoteTrailers": [],
+                "ProviderIds": {},
+                "IsFolder": false,
+                "ParentId": "101",
+                "Type": "Movie",
+                "Studios": [],
+                "GenreItems": [],
+                "TagItems": [],
+                "ImageTags": {},
+                "BackdropImageTags": [],
+                "MediaType": "Video"
+            },
+            "Server": {"Name": "DESKTOP-S7DTKJP", "Id": "2240cf897563470792b631152eb15508", "Version": "4.7.14.0"}
+        }
+    )
     // logToFile(`开始监听端口${port}`)
 });
