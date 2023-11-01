@@ -1,4 +1,3 @@
-const {urlImageToBase64, dateToString} = require("./other");
 const {tmdb} = require("../../public/public");
 const htmlStyle = `<style>
         .body {

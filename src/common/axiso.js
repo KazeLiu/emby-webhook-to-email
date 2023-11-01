@@ -8,11 +8,6 @@ function sendPost(url, data) {
     return axios.post(url, data)
 }
 
-function sendGetImage(url) {
-    return axios.get(url, {responseType: 'arraybuffer'})
-}
-
-
 function sendGetTMDB(url) {
     return new Promise((r, j) => {
         axios.get(tmdb.baseUrl + url, {
@@ -37,4 +32,4 @@ function sendGetTMDB(url) {
     })
 }
 
-module.exports = {sendPost, sendGetImage, sendGetTMDB}
+module.exports = {sendPost, sendGetTMDB}

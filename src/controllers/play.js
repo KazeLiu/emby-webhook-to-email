@@ -19,7 +19,7 @@ function playMovie(data) {
     sendGetTMDB(`/movie/${data.Item.ProviderIds.Tmdb}?language=zh-CN`).then(tmdbTVData => {
         data.Tmdb = tmdbTVData;
         let html = returnPlayMovieHtml(data)
-        sendWXMessage(`开始播放《${data.Item.Name}》`, html)
+        sendWXMessage(`开始播放《${data.Item.Name}》的`, html)
     })
 }
 

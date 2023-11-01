@@ -1,5 +1,4 @@
 // 根据接收到的值调整数据
-const {logToFile} = require("../common/log");
 const {playSeries,playMovie} = require("./play");
 
 function Main(data) {
