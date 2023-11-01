@@ -11,6 +11,7 @@ const upload = multer();
 // 处理POST请求
 app.post('/webhook', upload.none(), (req, res) => {
     const postData = JSON.parse(req.body.data);
+    logToFile(`端口接收到消息：${JSON.stringify(postData)}`)
     Main(postData);
 });
 

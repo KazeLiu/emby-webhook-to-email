@@ -1,4 +1,5 @@
 const {tmdb} = require("../../public/public");
+const {dateToString} = require("./other");
 const htmlStyle = `<style>
         .body {
             text-align: left;
@@ -55,6 +56,11 @@ const htmlStyle = `<style>
             font-size: 1em;
             font-weight: 400;
             color: rgba(255, 255, 255, 0.8);
+            margin-top: 10px;
+        }
+        
+        .tag-lines{
+           margin-top: 0;
         }
 
         .overview {
