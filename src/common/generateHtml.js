@@ -28,11 +28,11 @@ function returnPlaySeriesHtml(data) {
                 left: 0;
                 top: 0;
                 width: calc(100vw);">
-        <div style="font-size: 0.8em;">开始播放</div>
+        <div style="font-size: 0.8em;margin-left: 3px">开始播放</div>
         <div style="font-size: 2em;margin: 10px auto;font-weight: 800">${data.Item.SeriesName}</div>
-        <div style="font-size: 1em;margin-bottom: 20px;color:rgba(255,255,255,0.6);">第${data.Item.ParentIndexNumber}季，第${data.Item.IndexNumber}集</div>
+        <div style="font-size: 1em;margin-bottom: 10px;color:rgba(255,255,255,0.6);">第${data.Item.ParentIndexNumber}季，第${data.Item.IndexNumber}集</div>
         <div style="font-size: 1em;font-weight: 400;color:rgba(255,255,255,0.8);">${data.Item.SortName}</div>
-        <div style="font-size: 0.8em;margin: 10px 0;color: rgba(255,255,255,0.4);">${data.Item.Overview}</div>
+        <div style="font-size: 0.8em;margin: 0 0 10px 0;color: rgba(255,255,255,0.4);">${data.Item.Overview}</div>
         <img style="width:100%;" src="${tmdb.imageBaseUrl + data.Tmdb.poster_path}" alt="封面">
         <div style="display: flex;justify-content: space-between;font-size: 0.8em;margin: 20px auto 0 auto;color: rgba(255,255,255,0.4)">
             <div>${data.User.Name} 于 ${dateToString(new Date(data.Date))} 开始使用 ${data.Session.Client} 观看</div>
