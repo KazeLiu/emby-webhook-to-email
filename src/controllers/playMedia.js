@@ -4,7 +4,7 @@ const {sendGetTMDB} = require("../common/axiso");
 const {logToFile} = require("../common/log");
 
 function playSeries(data) {
-    logToFile(`开始获取电视剧${data.Item.SeriesName}的信息`)
+    logToFile(`开始获取电视剧《${data.Item.SeriesName}》的信息`)
     // 查询tmdb
     sendGetTMDB(`/search/tv?query=${data.Item.SeriesName}&first_air_date_year=${data.Item.ProductionYear}&language=zh-CN&page=1`).then(tmdbTVData => {
         if (tmdbTVData.total_results > 0) {
@@ -16,7 +16,7 @@ function playSeries(data) {
 }
 
 function playMovie(data) {
-    logToFile(`开始获取电影${data.Item.Name}的信息`)
+    logToFile(`开始获取电影《${data.Item.Name}》的信息`)
     // 查询tmdb
     sendGetTMDB(`/movie/${data.Item.ProviderIds.Tmdb}?language=zh-CN`).then(tmdbTVData => {
         data.Tmdb = tmdbTVData;
