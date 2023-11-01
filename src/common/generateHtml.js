@@ -51,6 +51,7 @@ function returnAddSeriesHtml(data) {
                 <div style="font-size: 0.8em; margin: 0 0 10px 0; color: rgba(255, 255, 255, 0.4);">${data.eData.overview}</div>
                 <img src="${tmdb.imageBaseUrl + data.tvData.poster_path}" alt="封面" style="width: 100%;">
                 <div style="display: flex; justify-content: space-between; font-size: 0.8em; margin: 10px auto 0 auto; color: rgba(255, 255, 255, 0.4);">
+                        <div>源文件：${data.data.Path}</div>
                         <div>当前信息为搜索结果，不代表刮削的最终结果</div>
                     </div>
             </div>
@@ -58,6 +59,8 @@ function returnAddSeriesHtml(data) {
 }
 
 function returnAddMovieHtml(data) {
+    debugger
+    return;
     return `
    <div style="text-align: left; color: #fff;">
         <img src="${tmdb.imageBaseUrl + data.Tmdb.backdrop_path}" alt="封面" style="height: 100vh; width: 100vw; position: fixed; left: 50vw; top: 0; object-fit: cover; transform: translateX(-50%) scale(1.1); filter: brightness(0.4) blur(10px);">
@@ -68,7 +71,7 @@ function returnAddMovieHtml(data) {
             <div style="font-size: 0.8em; margin: 0 0 10px 0; color: rgba(255, 255, 255, 0.4);">${data.Tmdb.overview}</div>
             <img src="${tmdb.imageBaseUrl + data.Tmdb.poster_path}" alt="封面" style="width: 100%;">
             <div style="display: flex; justify-content: space-between; font-size: 0.8em; margin: 10px auto 0 auto; color: rgba(255, 255, 255, 0.4);">
-                       // <div>源文件名：${}</div>
+                        <div>源文件：${data.data.Path}</div>
                         <div>当前信息为搜索结果，不代表刮削的最终结果</div>
                     </div>
         </div>

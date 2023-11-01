@@ -20,6 +20,7 @@ async function addSeries(data) {
             logToFile(`开始获取电视剧《${data.Item.SeriesName}》中${data.Item.Name}的信息`)
             let eData = await sendGetTMDB(`/tv/${tvData.id}/season/${S}/episode/${E}?language=zh-CN`);
             let html = returnAddSeriesHtml({
+                data,
                 tvData,
                 eData
             })
@@ -43,6 +44,9 @@ async function addMovie(data) {
             data.Tmdb = tvDataList.results[0];
             let html = returnAddMovieHtml(data)
             sendWXMessage(`媒体库已添加《${data.Item.Name}》`, html)
+        } else {
+            // 没查找到对应剧集
+            logToFile(`没有找到对应电影：${JSON.stringify(data)}`)
         }
     } catch (e) {
         logToFile(`报错：${JSON.stringify(e)}`)
