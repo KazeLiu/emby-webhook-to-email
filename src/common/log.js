@@ -3,6 +3,7 @@ const {dateToString} = require("./other");
 
 function logToFile(logText) {
     const logLine = `${dateToString()} ：${logText}\n`;
+    console.log(logLine)
     // 日志文件的路径
     const logFilePath = '../../console.log'; // 替换成你的日志文件路径
     // 追加到日志文件

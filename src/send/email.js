@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const {emailInfo} = require("../../public/public");
+const {logToFile} = require("../common/log");
 
 // 使用async..await 创建执行函数
 async function sendEmail({subject, html}) {
@@ -20,7 +21,7 @@ async function sendEmail({subject, html}) {
         subject: "Kaze.liu", // Subject line
         html: "Thanks<b>Kaze Liu</b>", // html 内容, 如果设置了html内容, 将忽略text内容
     });
-    console.log(info)
+    logToFile(`邮件已发送：${info}`)
 }
 
 module.exports = {sendEmail}
