@@ -1,5 +1,6 @@
 const {sendPost} = require("../common/axiso");
 const {wxPush} = require("../../public/public");
+const {logToFile} = require("../common/log");
 
 function sendWXMessage(title, html) {
     sendPost(wxPush.url, {
@@ -15,9 +16,9 @@ function sendWXMessage(title, html) {
         ],
         "verifyPay": false //是否验证订阅时间，true表示只推送给付费订阅用户，false表示推送的时候，不验证付费，不验证用户订阅到期时间，用户订阅过期了，也能收到。
     }).then(res => {
-        console.log(res);
+        logToFile(`【${title}】推送成功：${JSON.stringify(res)}`)
     }).catch(res => {
-        console.log(res)
+        logToFile(`【${title}】推送失败：${JSON.stringify(res)}`)
     })
 }
 

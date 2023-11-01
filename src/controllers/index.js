@@ -4,7 +4,7 @@ const {playStar} = require("./play");
 
 function Main(data) {
     logToFile(JSON.stringify(data));
-    // playStar(data);
+    playStar(data);
 }
 
 module.exports = {Main}

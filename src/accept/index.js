@@ -5,12 +5,11 @@ const port = 888;
 // 导入multer中间件
 const multer = require('multer');
 const {Main} = require("../controllers");
-const {returnPlayHtml} = require("../common/generateHtml");
+const {logToFile} = require("../common/log");
 const upload = multer();
 
 // 处理POST请求
 app.post('/webhook', upload.none(), (req, res) => {
-    // req.body 现在应该包含JSON数据
     const postData = JSON.parse(req.body.data);
     Main(postData);
     return true
@@ -18,4 +17,5 @@ app.post('/webhook', upload.none(), (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+    logToFile(`开始监听端口${port}`)
 });
