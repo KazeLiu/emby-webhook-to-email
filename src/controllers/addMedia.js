@@ -7,7 +7,7 @@ async function addSeries(data) {
     logToFile(`开始获取电视剧《${data.Item.SeriesName}》的信息`)
     // 通过正则匹配出第几季第几集
     // 提取 SeriesName，移除括号内的内容
-    const seriesName = data.Item.SeriesName.replace(/\(([^)]+)\)|\s*/g, '');
+    const seriesName = data.Item.SeriesName.replace(/\([^)]*\)/g, '');
     // 使用正则表达式提取 S 和 E 字段
     const match = data.Item.Name.match(/S(\d+)E(\d+)/);
     const S = match ? match[1] : '';

@@ -1,7 +1,7 @@
 // 根据接收到的值调整数据
 const {playSeries, playMovie} = require("./playMedia");
 const {addSeries, addMovie} = require("./addMedia");
-const {restartServer, otherSend} = require("./serverOther");
+const {restartServer, otherSend, upDateServer} = require("./serverOther");
 
 function Main(data) {
     // 根据收到的事件分类来区分内容
@@ -40,7 +40,7 @@ function Main(data) {
         restartServer();
     } else if (data.Event === "system.updateavailable") {
         upDateServer();
-    }else{
+    } else {
         otherSend(data);
     }
     // 添加剧集

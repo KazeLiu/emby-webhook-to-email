@@ -12,7 +12,7 @@ function returnPlaySeriesHtml(data,playText) {
             <div style="font-size: 0.8em; margin: 0 0 10px 0; color: rgba(255, 255, 255, 0.4);">${data.Item.Overview}</div>
             <img src="${tmdb.imageBaseUrl + data.Tmdb.poster_path}" alt="封面" style="width: 100%;">
             <div style="font-size: 0.8em; margin: 10px auto 0 auto; color: rgba(255, 255, 255, 0.4);">
-                <div>${data.User.Name} 于 ${dateToString(new Date(data.Date))} ${playText} 《${data.Session.Client}》</div>
+                <div>${data.User.Name} 于 ${dateToString(new Date(data.Date))} 使用 ${data.Session.Client} ${playText} </div>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@ function returnPlayMovieHtml(data,playText) {
             <div style="font-size: 0.8em; margin: 0 0 10px 0; color: rgba(255, 255, 255, 0.4);">${data.Item.Overview}</div>
             <img src="${tmdb.imageBaseUrl + data.Tmdb.poster_path}" alt="封面" style="width: 100%;">
             <div style="font-size: 0.8em; margin: 10px auto 0 auto; color: rgba(255, 255, 255, 0.4);">
-                <div>${data.User.Name} 于 ${dateToString(new Date(data.Date))} ${playText} 《${data.Session.Client}》</div>
+                <div>${data.User.Name} 于 ${dateToString(new Date(data.Date))} 使用 ${data.Session.Client} ${playText} </div>
             </div>
         </div>
     </div>`
