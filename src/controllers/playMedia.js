@@ -6,7 +6,7 @@ const {logToFile} = require("../common/log");
 function playSeries(data, playText) {
     logToFile(`开始获取电视剧《${data.Item.SeriesName}》的信息`)
     // 查询tmdb
-    sendGetTMDB(`/search/tv?query=${data.Item.SeriesName}&first_air_date_year=${data.Item.ProductionYear}&language=zh-CN&page=1`).then(tmdbTVData => {
+    sendGetTMDB(`/search/tv?query=${data.Item.SeriesName}&year=${data.Item.ProductionYear}&language=zh-CN&page=1`).then(tmdbTVData => {
         if (tmdbTVData.total_results > 0) {
             data.Tmdb = tmdbTVData.results[0];
             let html = returnPlaySeriesHtml(data, playText)
