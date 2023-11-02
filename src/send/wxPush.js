@@ -2,12 +2,12 @@ const {sendPost} = require("../common/axiso");
 const {wxPush} = require("../../public/public");
 const {logToFile} = require("../common/log");
 
-function sendWXMessage(title, html) {
+function sendWXMessage(title, content, contentType = 2) {
     sendPost(wxPush.url, {
         "appToken": wxPush.token,
-        "content": html,
+        "content": content,
         "summary": title,//消息摘要，显示在微信聊天页面或者模版消息卡片上，限制长度100，可以不传，不传默认截取content前面的内容。
-        "contentType": 2,//内容类型 1表示文字  2表示html(只发送body标签内部的数据即可，不包括body标签) 3表示markdown
+        "contentType": contentType,//内容类型 1表示文字  2表示html(只发送body标签内部的数据即可，不包括body标签) 3表示markdown
         "topicIds": [ //发送目标的topicId，是一个数组！！！，也就是群发，使用uids单发的时候， 可以不传。
 
         ],

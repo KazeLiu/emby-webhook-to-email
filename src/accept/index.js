@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 8095;
+
 
 // 导入multer中间件
 const multer = require('multer');
 const {Main} = require("../controllers/main");
 const {logToFile} = require("../common/log");
+const {port} = require("../../public/public");
 const upload = multer();
 
 // 处理POST请求
